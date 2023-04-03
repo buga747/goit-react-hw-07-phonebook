@@ -2,14 +2,11 @@ import PropTypes from 'prop-types';
 import { AiFillDelete } from 'react-icons/ai';
 import { Wrapper, Button, Text } from './ContactListItem.styled';
 import { useDispatch } from 'react-redux';
-import { deleteContact } from 'redux/contactsSlice';
+import { deleteContact } from 'redux/operations';
 
 const Contact = ({ id, name, number }) => {
   const dispatch = useDispatch();
-
-  const handleDeleteContact = () => {
-    dispatch(deleteContact(id));
-  };
+  const handleDelete = id => dispatch(deleteContact(id));
 
   return (
     <Wrapper>
@@ -22,7 +19,9 @@ const Contact = ({ id, name, number }) => {
       </Text>
       <Button
         id={id}
-        onClick={handleDeleteContact}
+        onClick={() => {
+          handleDelete(id);
+        }}
         title="Delete contact"
         type="button"
       >
