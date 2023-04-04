@@ -5,8 +5,3 @@ export const Wrapper = styled.div`
   width: 100%;
   justify-content: center;
 `;
-// .loader {
-//     /* position: relative;
-//     top: 10vh; */
-
-// }
